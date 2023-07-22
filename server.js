@@ -9,9 +9,9 @@ require('dotenv').config({path: './config/.env'})
 connectDB()  //initialize connecting the server to the database via config/database file
 
 app.set('view engine', 'ejs')
-// app.use(express.static('public'))
-// app.use(express.urlencoded({ extended: true }))
-// app.use(express.json())
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 app.use('/', homeRoutes)
 app.use('/habits', habitRoutes)
