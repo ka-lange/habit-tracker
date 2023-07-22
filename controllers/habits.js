@@ -7,7 +7,7 @@ module.exports = {
     },
     createHabit: async (req, res)=>{
         try{
-            await Habit.create({habit: req.body.habitItem, completed: false})
+            await Habit.create({habit: req.body.habitItem, completed: false}) //habit needs to be the user input somehow
             console.log('habit has been added!')
             res.redirect('/habits')
         }catch(err){
