@@ -6,24 +6,31 @@
     <!-- boostrap 5.2 CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="public/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1 class="text-center mt-5">This will be a habit tracker</h1>
+    
     <div class="container d-flex flex-column align-items-center">
-        <a href="/habits" class=""><i class="bi bi-pencil-square"></i></a>
+        <h1 class="text-center mt-5">home page</h1>
+        <!-- see if you can get this style in stylesheet instead of inline here -->
+        <div class="container d-flex justify-content-center">
+            <a href="/" class="m-2"><i class="bi bi-house icon-lg"></i></a> 
+            <a href="/edit" class="m-2"><i class="bi bi-pencil-square icon-lg"></i></a>
+        </div>
         <!-- habit card -->
         
         <div class="container">
             <div class="row row-cols-auto d-flex justify-content-center">
                 <% habits.forEach( el => { %>
-                    <div class="card col m-2" style="width: 18rem; height: 12rem;">
+                    <div class="card col m-2 card-habit">
                         <div class="card-body habitItem d-flex justify-content-between" data-id='<%=el._id%>'>
                             <h5 class='card-title'><%= el.habit %></h5>
                             <i class="bi bi-check-circle"></i>
                         </div>
                     </div>
                 <% }) %> 
+                <a href="/edit" class="card col m-2 card-habit d-flex justify-content-center align-items-center"><i class="bi bi-plus-circle icon-lg"></i></a>
             </div>
         </div>
         
