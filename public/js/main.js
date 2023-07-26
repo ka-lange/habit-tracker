@@ -18,12 +18,17 @@ lightdarktoggle.addEventListener('click', ()=>{
         link.setAttribute('href', 'public/css/lightmodeStyle.css');
         lightdarktoggle.classList.remove('bi-toggle-on')
         lightdarktoggle.classList.add('bi-toggle-off')
+        refreshButton.classList.remove('btn-outline-light')
+        refreshButton.classList.add('btn-outline-dark')
         logo.src = 'public/images/logolight.png'
+        
         timesClicked++
     } else{
         link.setAttribute('href', 'public/css/darkmodeStyle.css');
         lightdarktoggle.classList.add('bi-toggle-on')
         lightdarktoggle.classList.remove('bi-toggle-off')
+        refreshButton.classList.add('btn-outline-light')
+        refreshButton.classList.remove('btn-outline-dark')
         logo.src = 'public/images/logodark.png'
         timesClicked++
     }

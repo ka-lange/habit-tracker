@@ -23,12 +23,15 @@
         <h1 class="font-anton mx-4">HABIT TRACKER</h1>
     </header>
         
-    <navbar class="container d-flex justify-content-center align-items-center">
-        <i class="m-2 bi bi-plus-circle icon-lg icon-color-primary" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i>
-        <a href="/edit" class="m-2"><i class="bi bi-pencil-square icon-lg icon-color-primary"></i></a> 
-        <i id="refreshBtn" class="m-2 bi bi-arrow-clockwise icon-lg icon-color-primary"></i>
-        <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i>
+    <navbar class="container d-flex flex-column align-items-center">
+        <div>
+            <i class="m-2 bi bi-plus-circle icon-lg icon-color-primary" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i>
+            <a href="/edit" class="m-2"><i class="bi bi-pencil-square icon-lg icon-color-primary"></i></a> 
+            <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i>
+        </div>
+        
     </navbar>
+    
 
     <!-- Habits row container -->
     <div class="row ">
@@ -44,7 +47,7 @@
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
                                 <div>
                                     <h5 class='card-title fw-bold'><%= el.habit %></h5>
-                                    <p>Streak: <%= el.currentStreak %> days</p>
+                                    <p><%= el.currentStreak %> DAY STREAK</p>
                                 </div>
                                 <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                             </div>
@@ -115,13 +118,14 @@
 
         
    
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
             </a>
             <span class="mb-3 mb-md-0 text-muted">© 2023 Karissa Lange</span>
         </div>
+        <button id="refreshBtn" class="btn btn-outline-dark">Reset Day</button>
         <ul class="nav col-md-4 text-muted justify-content-end list-unstyled d-flex">
             <i class="bi bi-file-person icon-md mx-1"></i>
             <i class="bi bi-github icon-md mx-1"></i>

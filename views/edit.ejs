@@ -23,11 +23,12 @@
         </div>
         
         <!-- see if you can get this style in stylesheet instead of inline here -->
-        <navbar class="container d-flex justify-content-center align-items-center">
-            <i class="m-2 bi bi-plus-circle icon-lg icon-color-primary" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i>
-            <a href="/" class="m-2"><i class="bi bi-house icon-lg icon-color-primary"></i></a> 
-            <i id="refreshBtn" class="m-2 bi bi-arrow-clockwise icon-lg icon-color-primary"></i>
-            <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i>
+        <navbar class="container d-flex flex-column align-items-center">
+            <div>
+                <i class="m-2 bi bi-plus-circle icon-lg icon-color-primary" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i>
+                <a href="/" class="m-2"><i class="bi bi-house icon-lg icon-color-primary"></i></a> 
+                <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i>
+            </div>
         </navbar>
 
         <!-- habit card -->
@@ -126,7 +127,8 @@
           </a>
           <span class="mb-3 mb-md-0 text-muted">© 2023 Karissa Lange</span>
         </div>
-    
+        <button id="refreshBtn" class="btn btn-outline-dark">Reset Day</button>
+
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <i class="bi bi-file-person icon-md"></i>
         </ul>
