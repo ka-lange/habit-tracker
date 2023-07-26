@@ -29,87 +29,86 @@
         <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg"></i>
     </navbar>
 
-    <!-- Habits container -->
-<div class="row ">
-        <!-- MAKE HABIT -->
-    <div class="col container d-flex flex-column align-items-center mt-5">
-        <h1 class="font-anton">MAKE A HABIT</h1>
-        <!-- <i class=" bi bi-plus-circle icon-lg" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i> -->
-        <div class="row row-cols-auto d-flex justify-content-center">
-            <% habits.forEach( el => { %>
-                <% if(el.type == 'make'){ %>
-                    <div class="card col m-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
-                        style=" border: 3px solid <%= el.habitColor %> ;">
-                        <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
-                            <div>
-                                <h5 class='card-title fw-bold'><%= el.habit %></h5>
-                                <p>Streak: <%= el.currentStreak %> days</p>
+    <!-- Habits row container -->
+    <div class="row ">
+
+        <!-- MAKE HABIT COL -->
+        <div class="col container d-flex flex-column align-items-center mt-5">
+            <h1 class="font-anton">MAKE A HABIT</h1>
+            <div class="row row-cols-auto d-flex justify-content-center">
+                <% habits.forEach( el => { %>
+                    <% if(el.type == 'make'){ %>
+                        <div class="card col m-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
+                            style=" border: 3px solid <%= el.habitColor %> ;">
+                            <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
+                                <div>
+                                    <h5 class='card-title fw-bold'><%= el.habit %></h5>
+                                    <p>Streak: <%= el.currentStreak %> days</p>
+                                </div>
+                                <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                             </div>
-                            <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                         </div>
-                    </div>
-                <% }; %>
-            <% }) %> 
-            <!-- <a href="/edit" class="card col m-2 card-habit d-flex justify-content-center align-items-center"><i class="bi bi-plus-circle icon-lg"></i></a> -->
+                    <% }; %>
+                <% }) %> 
+            </div>
         </div>
-    </div>
-<!-- BREAK HABIT -->
-    <div class="col container d-flex flex-column align-items-center mt-5">
-        <h1 class="font-anton">BREAK A HABIT</h1>
-        <!-- <i class=" bi bi-plus-circle icon-lg" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i> -->
-        <div class="row row-cols-auto d-flex justify-content-center">
-            <% habits.forEach( el => { %>
-                <% if(el.type == 'break'){ %>
-                    <div class="card col m-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
-                        style=" border: 3px solid <%= el.habitColor %> ;">
-                        <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
-                            <div>
-                                <h5 class='card-title fw-bold'><%= el.habit %></h5>
-                                <p>Streak: <%= el.currentStreak %> days</p>
+
+        <!-- BREAK HABIT COL-->
+        <div class="col container d-flex flex-column align-items-center mt-5">
+            <h1 class="font-anton">BREAK A HABIT</h1>
+            <div class="row row-cols-auto d-flex justify-content-center">
+                <% habits.forEach( el => { %>
+                    <% if(el.type == 'break'){ %>
+                        <div class="card col m-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
+                            style=" border: 3px solid <%= el.habitColor %> ;">
+                            <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
+                                <div>
+                                    <h5 class='card-title fw-bold'><%= el.habit %></h5>
+                                    <p>Streak: <%= el.currentStreak %> days</p>
+                                </div>
+                                <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                             </div>
-                            <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                         </div>
-                    </div>
-                <% }; %>
-            <% }) %> 
-            <!-- <a href="/edit" class="card col m-2 card-habit d-flex justify-content-center align-items-center"><i class="bi bi-plus-circle icon-lg"></i></a> -->
+                    <% }; %>
+                <% }) %> 
+            </div>
         </div>
+
     </div>
-</div>
 
 
-<!-- Modal -->
-            <div class="modal fade" id="addHabitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title font-anton" id="exampleModalLabel">Track New Habit</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- ADD HABIT Modal -->
+    <div class="modal fade" id="addHabitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-anton" id="exampleModalLabel">Track New Habit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/edit/createHabit" method='POST' class="d-flex flex-column">
+                        <div class="mb-3">
+                            <input type="text" placeholder="Enter Habit" class="form-control" id="habitName" name='habitItem'>
                         </div>
-                        <div class="modal-body">
-                            <form action="/edit/createHabit" method='POST' class="d-flex flex-column">
-                                <div class="mb-3">
-                                    <input type="text" placeholder="Enter Habit" class="form-control" id="habitName" name='habitItem'>
-                                </div>
-                                <div class="mb-3 font-anton">
-                                    <input type="radio" class="btn-check" name="type" id="make" value="make">
-                                    <label class="btn btn-secondary" for="make">Make a Habit</label>
-                                    <input type="radio" class="btn-check" name="type" id="break" value="break">
-                                    <label class="btn btn-secondary" for="break">Break a Habit</label>
-                                </div>
-                                <div class="mb-3 d-flex">
-                                    <label for="habitColor" class="form-label">Choose Color:</label>
-                                    <input type="color" class="form-control w-25 mx-3" id="habitColor" name='habitColor' value="#6495ED">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-primary" value="add">
-                                </div>
-                            </form>
+                        <div class="mb-3 font-anton">
+                            <input type="radio" class="btn-check" name="type" id="make" value="make">
+                            <label class="btn btn-secondary" for="make">Make a Habit</label>
+                            <input type="radio" class="btn-check" name="type" id="break" value="break">
+                            <label class="btn btn-secondary" for="break">Break a Habit</label>
                         </div>
-                    </div>
+                        <div class="mb-3 d-flex">
+                            <label for="habitColor" class="form-label">Choose Color:</label>
+                            <input type="color" class="form-control w-25 mx-3" id="habitColor" name='habitColor' value="#6495ED">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="add">
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
 
 
 
@@ -117,25 +116,21 @@
    
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-muted">© 2023 Karissa Lange</span>
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2023 Karissa Lange</span>
         </div>
-        
-
-        
         <ul class="nav col-md-4 text-muted justify-content-end list-unstyled d-flex">
             <i class="bi bi-file-person icon-md mx-1"></i>
             <i class="bi bi-github icon-md mx-1"></i>
             <i class="bi bi-twitter icon-md mx-1"></i>
-            
         </ul>
 
-      </footer>
+    </footer>
 
-    <!-- Bootstrap 5.2 JS link -->
-    <script src="public/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!-- Bootstrap 5.2 JS link -->
+<script src="public/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
