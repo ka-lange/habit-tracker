@@ -1,32 +1,27 @@
 body{
     font-family: 'Open Sans', sans-serif;
-    background-color: aliceblue;
-    color: rgb(29, 33, 42);
-}
-i{
-    cursor: pointer;
 }
 .container-fullpage{
     height: 100vh;
 }
-.icon-md {
-    font-size: 1.5rem;
-    color: black;
-}
-.icon-lg {
-    font-size: 2rem;
-    color: black;
-}
-.icon-xl {
-    font-size: 3rem;
-    color: black;
-}
-
 .card-habit{
     width: 16rem;
     height: 8rem;
-    background-color: rgb(246, 250, 255);
 }
 .font-anton{
     font-family: 'Anton', sans-serif;
+}
+
+/* ICON STYLES */
+i{
+    cursor: pointer;
+}
+.icon-md {
+    font-size: 1.5rem;
+}
+.icon-lg {
+    font-size: 2rem;
+}
+.icon-xl {
+    font-size: 3rem;
 }

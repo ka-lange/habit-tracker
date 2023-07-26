@@ -1,4 +1,4 @@
-const link = document.getElementById('mainStylesheet');
+const link = document.getElementById('colorStylesheet');
 const logo = document.getElementById('logo');
 
 
@@ -15,13 +15,13 @@ var timesClicked = 0;
 const lightdarktoggle = document.getElementById('darklighttoggle')
 lightdarktoggle.addEventListener('click', ()=>{
     if(timesClicked%2 !== 0){
-        link.setAttribute('href', 'public/css/style.css');
+        link.setAttribute('href', 'public/css/lightmodeStyle.css');
         lightdarktoggle.classList.remove('bi-toggle-on')
         lightdarktoggle.classList.add('bi-toggle-off')
         logo.src = 'public/images/logolight.png'
         timesClicked++
     } else{
-        link.setAttribute('href', 'public/css/darkmodestyle.css');
+        link.setAttribute('href', 'public/css/darkmodeStyle.css');
         lightdarktoggle.classList.add('bi-toggle-on')
         lightdarktoggle.classList.remove('bi-toggle-off')
         logo.src = 'public/images/logodark.png'
