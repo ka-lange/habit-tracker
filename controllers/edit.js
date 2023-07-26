@@ -62,6 +62,19 @@ module.exports = {
             console.log(err)
         }
     },
+    refreshStreak: async (req, res)=>{
+        try{
+            await Habit.findOneAndUpdate({_id:req.body.habitIdFromJSFile},{
+                currentStreak: 0,
+                completed: false
+            })
+            console.log('Marked Uncomplete')
+            res.json('Marked Uncomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    
     editHabit: async (req, res)=>{
         try{
             await Habit.findOneAndUpdate({_id:req.body.habitIdFromJSFile},{

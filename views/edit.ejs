@@ -62,7 +62,7 @@
             <div class="row row-cols-auto d-flex justify-content-center">
                 <% habits.forEach( el => { %>
                     <% if(el.type == 'break'){ %>
-                        <div class="card col m-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
+                        <div class="card col m-2 p-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
                             style=" border: 3px solid <%= el.habitColor %> ;">
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
                                 <div>

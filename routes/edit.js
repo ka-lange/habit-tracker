@@ -13,6 +13,7 @@ router.put('/editHabit', editController.editHabit)
 router.put('/completeHabit', editController.completeHabit)
 
 router.put('/uncompleteHabits', editController.uncompleteHabits)
+router.put('/refreshStreak', editController.refreshStreak)
 
 router.delete('/deleteHabit', editController.deleteHabit)
 

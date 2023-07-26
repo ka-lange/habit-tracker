@@ -1,11 +1,28 @@
 const deleteButtons = document.querySelectorAll('.deleteBtn')
 const editButtons = document.querySelectorAll('.editBtn')
 const addUnitButtons = document.querySelectorAll('.addUnitBtn')
-const habitCards = document.querySelectorAll('.card-habit')
+// const habitCards = document.querySelectorAll('.card-habit')
+const habitItems = document.querySelectorAll('.habitItem')
+const completedItems = document.querySelectorAll('.completed')
+const uncompletedItems = document.querySelectorAll('.not')
 const refreshButton = document.getElementById('refreshBtn')
 
-refreshButton.addEventListener('click', uncompleteHabits)
+refreshButton.addEventListener('click', () => {
+    refreshCompletedHabits(); 
+    refreshUncompletedHabits();
+})
 //setInterval(uncompleteHabits, 10000);
+function refreshCompletedHabits() {
+    Array.from(completedItems).forEach((habit)=>{
+        uncompleteHabits();
+    })
+}
+function refreshUncompletedHabits() {
+    Array.from(uncompletedItems).forEach((habit)=>{
+        // console.log(habit.children[0].dataset.id)
+        refreshStreak(habit);
+    })
+}
 
 
 Array.from(deleteButtons).forEach((btn)=>{
@@ -22,12 +39,9 @@ Array.from(addUnitButtons).forEach((btn)=>{
 })
 
 
-
-
 async function completeHabit(){
     const habitId = this.parentNode.dataset.id
     console.log(habitId)
-    
     try{
         const response = await fetch('edit/completeHabit', {
             method: 'put',
@@ -43,13 +57,34 @@ async function completeHabit(){
         console.log(err)
     }
 }
+
+
 async function uncompleteHabits(){
+    
     try{
         const response = await fetch('edit/uncompleteHabits', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 'completed': false
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload() //color doesnt stay because of reload
+    }catch(err){
+        console.log(err)
+    }
+}
+async function refreshStreak(habit){
+    const habitId = habit.children[0].dataset.id
+    console.log(habitId)
+    try{
+        const response = await fetch('edit/refreshStreak', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'habitIdFromJSFile': habitId
             })
         })
         const data = await response.json()
