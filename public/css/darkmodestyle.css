@@ -1,7 +1,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
-    background-color: aliceblue;
-    color: rgb(29, 33, 42);
+    background-color: rgb(29, 33, 42);
+    color: aliceblue;
 }
 i{
     cursor: pointer;
@@ -11,21 +11,24 @@ i{
 }
 .icon-md {
     font-size: 1.5rem;
-    color: black;
+    color: #FFFFFF87;
 }
 .icon-lg {
     font-size: 2rem;
-    color: black;
+    color: #FFFFFF99;
 }
 .icon-xl {
     font-size: 3rem;
-    color: black;
+    color: #FFFFFF99;
 }
 
 .card-habit{
     width: 16rem;
     height: 6rem;
-    background-color: rgb(246, 250, 255);
+    background-color: rgb(45, 51, 66);
+}
+.modal-content{
+    background-color: rgb(45, 51, 66);
 }
 .font-anton{
     font-family: 'Anton', sans-serif;

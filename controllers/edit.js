@@ -13,9 +13,17 @@ module.exports = {
     },
     createHabit: async (req, res)=>{
         try{
-            await Habit.create({habit: req.body.habitItem, completed: false}) //habit needs to be the user input somehow
+            await Habit.create({
+                habit: req.body.habitItem, 
+                type: req.body.type,
+                habitColor: req.body.habitColor,
+                currentStreak: 0,
+                // frequencyDaily: req.body.frequencyDaily, 
+                // frequencyUnits: req.body.frequencyUnits, 
+                // timesCompletedToday: 0,
+                completed: false}) //habit needs to be the user input somehow
             console.log('habit has been added!')
-            res.redirect('/edit')
+            res.redirect('/')
         }catch(err){
             console.log(err)
         }
@@ -29,6 +37,58 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
-    }
+    },
+    completeHabit: async (req, res)=>{
+        try{
+            await Habit.findOneAndUpdate({_id:req.body.habitIdFromJSFile},{
+                $inc: { currentStreak: 1 }, //increases count of current streak by 1
+                 completed: true
+            })
+            console.log('Marked Complete')
+            res.json('Marked Complete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    uncompleteHabits: async (req, res)=>{
+        try{
+            await Habit.updateMany(
+                {Habit},{
+                completed: false
+            })
+            console.log('Marked Uncomplete')
+            res.json('Marked Uncomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    editHabit: async (req, res)=>{
+        try{
+            await Habit.findOneAndUpdate({_id:req.body.habitIdFromJSFile},{
+                 //increases count of current streak by 1
+                 habit: req.body.newHabitNameFromJSFile,
+                 habitColor: req.body.newHabitColorFromJSFile,
+                //  currentStreak: 0,
+                 completed: false
+            })
+            console.log('Habit Name changed!')
+            res.json('Habit Changed')
+        }catch(err){
+            console.log(err)
+        }
+        // try{
+        //     await Habit.create({
+        //         habit: req.body.newHabitName, 
+        //         habitColor: req.body.newHabitColor,
+        //         currentStreak: 0,
+        //         // frequencyDaily: req.body.frequencyDaily, 
+        //         // frequencyUnits: req.body.frequencyUnits, 
+        //         // timesCompletedToday: 0,
+        //         completed: false}) //habit needs to be the user input somehow
+        //     console.log('habit has been added!')
+        //     res.redirect('/')
+        // }catch(err){
+        //     console.log(err)
+        // }
+    },
 }
-
