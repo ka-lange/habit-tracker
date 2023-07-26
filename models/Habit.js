@@ -5,6 +5,10 @@ const HabitSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  type: {
+    type: String,
+    required: true,
+  },
   habitColor: {
     type: String,
     required: true,
