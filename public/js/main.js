@@ -1,3 +1,7 @@
+const link = document.getElementById('mainStylesheet');
+const logo = document.getElementById('logo');
+
+
 const deleteButtons = document.querySelectorAll('.deleteBtn')
 const editButtons = document.querySelectorAll('.editBtn')
 const addUnitButtons = document.querySelectorAll('.addUnitBtn')
@@ -6,6 +10,25 @@ const habitItems = document.querySelectorAll('.habitItem')
 const completedItems = document.querySelectorAll('.completed')
 const uncompletedItems = document.querySelectorAll('.not')
 const refreshButton = document.getElementById('refreshBtn')
+
+var timesClicked = 0;
+const lightdarktoggle = document.getElementById('darklighttoggle')
+lightdarktoggle.addEventListener('click', ()=>{
+    if(timesClicked%2 !== 0){
+        link.setAttribute('href', 'public/css/style.css');
+        lightdarktoggle.classList.remove('bi-toggle-on')
+        lightdarktoggle.classList.add('bi-toggle-off')
+        logo.src = 'public/images/logolight.png'
+        timesClicked++
+    } else{
+        link.setAttribute('href', 'public/css/darkmodestyle.css');
+        lightdarktoggle.classList.add('bi-toggle-on')
+        lightdarktoggle.classList.remove('bi-toggle-off')
+        logo.src = 'public/images/logodark.png'
+        timesClicked++
+    }
+})
+
 
 refreshButton.addEventListener('click', () => {
     refreshCompletedHabits(); 
