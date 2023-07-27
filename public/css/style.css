@@ -1,6 +1,12 @@
 body{
     font-family: 'Open Sans', sans-serif;
+    background-color: aliceblue;
+    color: rgb(29, 33, 42);
 }
+/* body{
+    background-color: rgb(29, 33, 42);
+    color: aliceblue;
+} */
 .container-fullpage{
     height: 100vh;
 }
@@ -8,10 +14,26 @@ body{
     width: 16rem;
     height: 8rem;
 }
+.card-habit-background-light{
+    background-color: rgb(246, 250, 255);
+}
+.card-habit-background-dark{
+    background-color: rgb(45, 51, 66);
+}
+.modal-content{
+    background-color: rgb(45, 51, 66);
+}
+
 .font-anton{
     font-family: 'Anton', sans-serif;
 }
 
+.icon-color-primary{
+    color: black;
+}
+.icon-color-secondary{
+    color: #FFFFFF87;
+}
 /* ICON STYLES */
 i{
     cursor: pointer;

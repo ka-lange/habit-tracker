@@ -15,7 +15,7 @@ var timesClicked = 0;
 const lightdarktoggle = document.getElementById('darklighttoggle')
 lightdarktoggle.addEventListener('click', ()=>{
     if(timesClicked%2 !== 0){
-        link.setAttribute('href', 'public/css/lightmodeStyle.css');
+        // link.setAttribute('href', 'public/css/lightmodeStyle.css');
         lightdarktoggle.classList.remove('bi-toggle-on')
         lightdarktoggle.classList.add('bi-toggle-off')
         refreshButton.classList.remove('btn-outline-light')
@@ -24,7 +24,7 @@ lightdarktoggle.addEventListener('click', ()=>{
         
         timesClicked++
     } else{
-        link.setAttribute('href', 'public/css/darkmodeStyle.css');
+        // link.setAttribute('href', 'public/css/darkmodeStyle.css');
         lightdarktoggle.classList.add('bi-toggle-on')
         lightdarktoggle.classList.remove('bi-toggle-off')
         refreshButton.classList.add('btn-outline-light')
