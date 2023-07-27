@@ -30,6 +30,9 @@ function setTheme(){
         document.querySelectorAll('.card-habit').forEach((card)=>{
             card.style.backgroundColor='rgb(246, 250, 255)'
         })
+        document.querySelectorAll('.icon-color-primary').forEach((icon)=>{
+            icon.style.color='black'
+        })
         localStorage.setItem("timesClicked", timesClicked++);
     } else{
         lightdarktoggle.classList.add('bi-toggle-on')
@@ -42,6 +45,9 @@ function setTheme(){
         document.querySelector('body').style.color = 'aliceblue'
         document.querySelectorAll('.card-habit').forEach((card)=>{
             card.style.backgroundColor='rgb(45, 51, 66)'
+        })
+        document.querySelectorAll('.icon-color-primary').forEach((icon)=>{
+            icon.style.color='#ffffff97'
         })
         localStorage.setItem("timesClicked", timesClicked++);
     }
