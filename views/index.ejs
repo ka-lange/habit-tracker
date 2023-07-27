@@ -45,10 +45,10 @@
                             style=" border: 3px solid <%= el.habitColor %> ;">
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
                                 <div>
-                                    <h5 class='card-title fw-bold'><%= el.habit %></h5>
+                                    <h5 class='card-title'><%= el.habit %></h5>
                                     <p style=" color: <%= el.habitColor %> ;"><%= el.currentStreak %> DAY STREAK</p>
                                 </div>
-                                <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
+                                <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>; visibility: <%= el.completed === true ? 'hidden' : ''%>"></i>
                             </div>
                         </div>
                     <% }; %>
@@ -66,10 +66,10 @@
                             style=" border: 3px solid <%= el.habitColor %> ;">
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
                                 <div>
-                                    <h5 class='card-title fw-bold'><%= el.habit %></h5>
+                                    <h5 class='card-title '><%= el.habit %></h5>
                                     <p style=" color: <%= el.habitColor %> ;"> <%= el.currentStreak %> DAY STREAK </p>
                                 </div>
-                                <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
+                                <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>; visibility: <%= el.completed === true ? 'hidden' : ''%>"></i>
                             </div>
                         </div>
                     <% }; %>

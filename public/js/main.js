@@ -1,10 +1,6 @@
-
-
-
 const deleteButtons = document.querySelectorAll('.deleteBtn')
 const editButtons = document.querySelectorAll('.editBtn')
 const addUnitButtons = document.querySelectorAll('.addUnitBtn')
-// const habitCards = document.querySelectorAll('.card-habit')
 const habitItems = document.querySelectorAll('.habitItem')
 const completedItems = document.querySelectorAll('.completed')
 const uncompletedItems = document.querySelectorAll('.not')
@@ -98,8 +94,10 @@ async function completeHabit(){
             })
         })
         const data = await response.json()
+        
         console.log(data)
         location.reload() //color doesnt stay because of reload
+        
     }catch(err){
         console.log(err)
     }
