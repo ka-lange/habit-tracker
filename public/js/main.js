@@ -1,5 +1,4 @@
-const link = document.getElementById('colorStylesheet');
-const logo = document.getElementById('logo');
+
 
 
 const deleteButtons = document.querySelectorAll('.deleteBtn')
@@ -13,6 +12,8 @@ const refreshButton = document.getElementById('refreshBtn')
 
 var timesClicked = 0;
 const lightdarktoggle = document.getElementById('darklighttoggle')
+const link = document.getElementById('colorStylesheet');
+const logo = document.getElementById('logo');
 lightdarktoggle.addEventListener('click', ()=>{
     if(timesClicked%2 !== 0){
         // link.setAttribute('href', 'public/css/lightmodeStyle.css');
@@ -21,7 +22,12 @@ lightdarktoggle.addEventListener('click', ()=>{
         refreshButton.classList.remove('btn-outline-light')
         refreshButton.classList.add('btn-outline-dark')
         logo.src = 'public/images/logolight.png'
-        
+        document.querySelector('body').style.backgroundColor = 'aliceblue'
+        document.querySelector('.modal-content').style.backgroundColor = 'aliceblue'
+        document.querySelector('body').style.color = 'rgb(29, 33, 42)'
+        document.querySelectorAll('.card-habit').forEach((card)=>{
+            card.style.backgroundColor='rgb(246, 250, 255)'
+        })
         timesClicked++
     } else{
         // link.setAttribute('href', 'public/css/darkmodeStyle.css');
@@ -30,6 +36,13 @@ lightdarktoggle.addEventListener('click', ()=>{
         refreshButton.classList.add('btn-outline-light')
         refreshButton.classList.remove('btn-outline-dark')
         logo.src = 'public/images/logodark.png'
+        document.querySelector('body').style.backgroundColor = 'rgb(29, 33, 42)'
+        document.querySelector('.modal-content').style.backgroundColor = 'rgb(29, 33, 42)'
+        document.querySelector('body').style.color = 'aliceblue'
+        document.querySelectorAll('.card-habit').forEach((card)=>{
+            card.style.backgroundColor='rgb(45, 51, 66)'
+        })
+        
         timesClicked++
     }
 })
