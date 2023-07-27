@@ -36,7 +36,7 @@
     <div class="row ">
 
         <!-- MAKE HABIT COL -->
-        <div class="col container d-flex flex-column align-items-center mt-5">
+        <div class="col container d-flex flex-column align-items-center mt-5 border-end">
             <h1 class="font-anton">MAKE A HABIT</h1>
             <div class="row row-cols-auto d-flex justify-content-center">
                 <% habits.forEach( el => { %>
@@ -46,7 +46,7 @@
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
                                 <div>
                                     <h5 class='card-title fw-bold'><%= el.habit %></h5>
-                                    <p><%= el.currentStreak %> DAY STREAK</p>
+                                    <p style=" color: <%= el.habitColor %> ;"><%= el.currentStreak %> DAY STREAK</p>
                                 </div>
                                 <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                             </div>
@@ -55,9 +55,9 @@
                 <% }) %> 
             </div>
         </div>
-
+        
         <!-- BREAK HABIT COL-->
-        <div class="col container d-flex flex-column align-items-center mt-5">
+        <div class="col container d-flex flex-column align-items-center mt-5 border-start">
             <h1 class="font-anton">BREAK A HABIT</h1>
             <div class="row row-cols-auto d-flex justify-content-center">
                 <% habits.forEach( el => { %>
@@ -67,7 +67,7 @@
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
                                 <div>
                                     <h5 class='card-title fw-bold'><%= el.habit %></h5>
-                                    <p>Streak: <%= el.currentStreak %> days</p>
+                                    <p style=" color: <%= el.habitColor %> ;"> <%= el.currentStreak %> DAY STREAK </p>
                                 </div>
                                 <i class="addUnitBtn bi bi-check-lg icon-xl align-self-center" style="color: <%= el.habitColor %>"></i>
                             </div>
