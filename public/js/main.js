@@ -9,43 +9,43 @@ const habitItems = document.querySelectorAll('.habitItem')
 const completedItems = document.querySelectorAll('.completed')
 const uncompletedItems = document.querySelectorAll('.not')
 const refreshButton = document.getElementById('refreshBtn')
+const lightdarktoggle = document.getElementById('darklighttoggle')
+
 
 var timesClicked = 0;
-const lightdarktoggle = document.getElementById('darklighttoggle')
-const link = document.getElementById('colorStylesheet');
-const logo = document.getElementById('logo');
-lightdarktoggle.addEventListener('click', ()=>{
+var timesClicked = localStorage.getItem("timesClicked");
+lightdarktoggle.addEventListener('click', setTheme)
+
+window.onload=setTheme()
+function setTheme(){
     if(timesClicked%2 !== 0){
-        // link.setAttribute('href', 'public/css/lightmodeStyle.css');
         lightdarktoggle.classList.remove('bi-toggle-on')
         lightdarktoggle.classList.add('bi-toggle-off')
         refreshButton.classList.remove('btn-outline-light')
         refreshButton.classList.add('btn-outline-dark')
-        logo.src = 'public/images/logolight.png'
+        document.getElementById('logo').src = 'public/images/logolight.png'
         document.querySelector('body').style.backgroundColor = 'aliceblue'
         document.querySelector('.modal-content').style.backgroundColor = 'aliceblue'
         document.querySelector('body').style.color = 'rgb(29, 33, 42)'
         document.querySelectorAll('.card-habit').forEach((card)=>{
             card.style.backgroundColor='rgb(246, 250, 255)'
         })
-        timesClicked++
+        localStorage.setItem("timesClicked", timesClicked++);
     } else{
-        // link.setAttribute('href', 'public/css/darkmodeStyle.css');
         lightdarktoggle.classList.add('bi-toggle-on')
         lightdarktoggle.classList.remove('bi-toggle-off')
         refreshButton.classList.add('btn-outline-light')
         refreshButton.classList.remove('btn-outline-dark')
-        logo.src = 'public/images/logodark.png'
+        document.getElementById('logo').src = 'public/images/logodark.png'
         document.querySelector('body').style.backgroundColor = 'rgb(29, 33, 42)'
         document.querySelector('.modal-content').style.backgroundColor = 'rgb(29, 33, 42)'
         document.querySelector('body').style.color = 'aliceblue'
         document.querySelectorAll('.card-habit').forEach((card)=>{
             card.style.backgroundColor='rgb(45, 51, 66)'
         })
-        
-        timesClicked++
+        localStorage.setItem("timesClicked", timesClicked++);
     }
-})
+}
 
 
 refreshButton.addEventListener('click', () => {
