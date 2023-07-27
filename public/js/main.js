@@ -10,13 +10,13 @@ const completedItems = document.querySelectorAll('.completed')
 const uncompletedItems = document.querySelectorAll('.not')
 const refreshButton = document.getElementById('refreshBtn')
 const lightdarktoggle = document.getElementById('darklighttoggle')
-
+lightdarktoggle.addEventListener('click', setTheme)
 
 var timesClicked = 0;
 var timesClicked = localStorage.getItem("timesClicked");
-lightdarktoggle.addEventListener('click', setTheme)
-
 window.onload=setTheme()
+
+
 function setTheme(){
     if(timesClicked%2 !== 0){
         lightdarktoggle.classList.remove('bi-toggle-on')
