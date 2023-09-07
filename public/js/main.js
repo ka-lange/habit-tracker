@@ -86,7 +86,7 @@ async function completeHabit(){
     const habitId = this.parentNode.dataset.id
     console.log(habitId)
     try{
-        const response = await fetch('edit/completeHabit', {
+        const response = await fetch('/completeHabit', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -107,7 +107,7 @@ async function completeHabit(){
 async function uncompleteHabits(){
     
     try{
-        const response = await fetch('edit/uncompleteHabits', {
+        const response = await fetch('/uncompleteHabits', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -125,7 +125,7 @@ async function refreshStreak(habit){
     const habitId = habit.children[0].dataset.id
     console.log(habitId)
     try{
-        const response = await fetch('edit/refreshStreak', {
+        const response = await fetch('/refreshStreak', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -144,7 +144,7 @@ async function deleteHabit(){
     const habitId = this.parentNode.parentNode.dataset.id
     console.log(habitId)
     try{
-        const response = await fetch('edit/deleteHabit', { 
+        const response = await fetch('/deleteHabit', { 
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -193,7 +193,7 @@ async function editHabit(){
     const newHabitName = document.getElementById('newHabitName').value
     const newHabitColor = document.getElementById('newHabitColor').value
     try{
-        const response = await fetch('edit/editHabit', { 
+        const response = await fetch('/editHabit', { 
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({

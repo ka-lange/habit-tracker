@@ -13,12 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Edit</title>
 </head>
 <body class="mx-5">
 
         <div class="d-flex justify-content-between align-items-center border-bottom">
-            <a href="/"><img id="logo" style="height: 20vh" src="public/images/logolight.png"></a>
+            <a href="/home"><img id="logo" style="height: 20vh" src="public/images/logolight.png"></a>
             <h1 class="font-anton mx-4">HABIT TRACKER</h1>
         </div>
         
@@ -26,7 +26,7 @@
         <navbar class="container d-flex flex-column align-items-center">
             <div>
                 <i class="m-2 bi bi-plus-circle icon-lg icon-color-primary" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i>
-                <a href="/" class="m-2"><i class="bi bi-house icon-lg icon-color-primary"></i></a> 
+                <a href="/home" class="m-2"><i class="bi bi-house icon-lg icon-color-primary"></i></a> 
                 <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i>
             </div>
         </navbar>
@@ -38,7 +38,7 @@
             <h1 class="font-anton">MAKE A HABIT</h1>
             <div class="row row-cols-auto d-flex justify-content-center">
                 <% habits.forEach( el => { %>
-                    <% if(el.type == 'make'){ %>
+                    <% if(el.type == 'make' && currentUser && el.owner._id.equals(currentUser._id)){ %>
                         <div class="card col m-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
                             style=" border: 3px solid <%= el.habitColor %> ;">
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
@@ -63,7 +63,7 @@
             <h1 class="font-anton">BREAK A HABIT</h1>            
             <div class="row row-cols-auto d-flex justify-content-center">
                 <% habits.forEach( el => { %>
-                    <% if(el.type == 'break'){ %>
+                    <% if(el.type == 'break' && currentUser && el.owner._id.equals(currentUser._id)){ %>
                         <div class="card col m-2 p-2 card-habit d-flex justify-content-center <%= el.completed === true ? 'completed' : 'not'%>" 
                             style=" border: 3px solid <%= el.habitColor %> ;">
                             <div class="habitItem d-flex justify-content-between align-items-center" data-id='<%=el._id%>'>
@@ -95,7 +95,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="/edit/createHabit" method='POST' class="d-flex flex-column">
+                        <form action="/createHabit" method='POST' class="d-flex flex-column">
                             <div class="mb-3">
                                 <input type="text" placeholder="Enter Habit" class="form-control" id="habitName" name='habitItem'>
                             </div>

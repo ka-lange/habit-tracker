@@ -32,7 +32,11 @@ const HabitSchema = new mongoose.Schema({
   completed: {
     type: Boolean,
     required: true,
-  }
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
 })
 
 module.exports = mongoose.model('Habit', HabitSchema)

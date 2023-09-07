@@ -3,7 +3,7 @@ const router = express.Router()
 const editController = require('../controllers/edit')
 //ensure Auth checks if user is logged in
 //make a get request to get to the page
-router.get('/', editController.getIndex) //uses home controller to get index page and render index.js from views
+router.get('/edit', editController.getIndex) //uses home controller to get index page and render index.js from views
 
 router.post('/createHabit', editController.createHabit)
 // router.post('/createMakeHabit', editController.createMakeHabit)
