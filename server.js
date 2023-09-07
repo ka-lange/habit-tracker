@@ -24,7 +24,7 @@ const connectDB = async () => {
 app.use(session({
     secret: 'make some habits', 
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   }));
   
   app.use(passport.initialize());

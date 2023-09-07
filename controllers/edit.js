@@ -30,11 +30,11 @@ module.exports = {
     deleteHabit: async (req,res)=>{
         //console.log(req.body.habitIdFromJSFile)
         try{
-            // await Habit.findOneAndDelete({_id:req.body.habitIdFromJSFile})
-            let habit = await Habit.findById(req.params.id);
-            if(habit.owner.equals(req.user._id)){
-                await Habit.findByIdAndRemove(req.params.id);
-              }
+            await Habit.findOneAndDelete({_id:req.body.habitIdFromJSFile})
+            // let habit = await Habit.findById(req.params.id);
+            // if(habit.owner.equals(req.user._id)){
+            //     await Habit.findByIdAndRemove(req.params.id);
+            //   }
             console.log(`Deleted Habit`)
             res.json('Deleted It')
         }catch(err){

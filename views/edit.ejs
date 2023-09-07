@@ -18,8 +18,11 @@
 <body class="mx-5">
 
         <div class="d-flex justify-content-between align-items-center border-bottom">
-            <a href="/home"><img id="logo" style="height: 20vh" src="public/images/logolight.png"></a>
-            <h1 class="font-anton mx-4">HABIT TRACKER</h1>
+            <a href=""><img id="logo" style="height: 20vh" src="public/images/logolight.png"></a>
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="font-anton mx-4">HABIT TRACKER</h1>
+                <a href="/logout"><button class="btn btn-dark">Logout</button></a>
+            </div>
         </div>
         
         <!-- see if you can get this style in stylesheet instead of inline here -->
@@ -27,10 +30,10 @@
             <div>
                 <i class="m-2 bi bi-plus-circle icon-lg icon-color-primary" data-bs-toggle="modal" data-bs-target="#addHabitModal"></i>
                 <a href="/home" class="m-2"><i class="bi bi-house icon-lg icon-color-primary"></i></a> 
-                <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i>
+                <!-- <i id="darklighttoggle" class="m-2 bi bi-toggle-off icon-lg icon-color-primary"></i> -->
             </div>
         </navbar>
-
+<main style="height: 50vh">
         <!-- habit card -->
 <div class="row ">
         <!-- MAKE HABIT -->
@@ -80,11 +83,12 @@
                     <% }; %>
                 <% }) %> 
                 <!-- <a href="/edit" class="card col m-2 card-habit d-flex justify-content-center align-items-center"><i class="bi bi-plus-circle icon-lg"></i></a> -->
-                
             </div>
         </div>
 </div>
-  
+<div class="d-flex justify-content-center mt-5">
+    <button id="refreshBtn" class="btn btn-dark" style="display: none;">Reset Day</button>
+</div>
 
 <!-- Modal -->
         <div class="modal fade" id="addHabitModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -110,8 +114,7 @@
                                 <input type="color" class="form-control w-25 mx-3" id="habitColor" name='habitColor' value="#6495ED">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-primary" value="add">
+                                <input type="submit" class="btn btn-outline-dark" value="ADD">
                             </div>
                         </form>
                     </div>
@@ -119,20 +122,15 @@
             </div>
         </div>
         
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-muted">© 2023 Karissa Lange</span>
-        </div>
-        <button id="refreshBtn" class="btn btn-outline-dark">Reset Day</button>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <i class="bi bi-file-person icon-md"></i>
-        </ul>
-      </footer>
+</main>
+<footer class="d-flex flex-column align-items-center py-4 my-4 border-top" >
+    <p class="text-muted">Made By Karissa Lange</p>
+    <div>
+        <a href="https://karissa-lange.netlify.app/"><i class="bi bi-file-person icon-md mx-1 text-dark"></i></a>
+        <a href="https://github.com/ka-lange/habit-tracker"><i class="bi bi-github icon-md mx-1 text-dark"></i></a> 
+        <a href="https://twitter.com/kl2662"><i class="bi bi-twitter icon-md mx-1 text-dark"></i></a>
+    </div>
+</footer>
 
     <!-- Bootstrap 5.2 JS link -->
     <script src="public/js/main.js"></script>
