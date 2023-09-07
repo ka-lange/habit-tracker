@@ -34,10 +34,11 @@ app.use(session({
   passport.serializeUser(User.serializeUser());
   passport.deserializeUser(User.deserializeUser());
   
+  
   // pass current user to all routes
   app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  next();
+    res.locals.currentUser = req.user;
+    next();
   });
 
 require('dotenv').config({path: './config/.env'})
